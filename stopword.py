@@ -23,7 +23,7 @@ except ImportError:
 custom_stopwords = {
     "serait", "un", "une", "et", "de", "des", "en", "dans", "la", "le", "les", "du", "au", "aux",
     "ou", "car", "donc", "or", "ni", "par", "pour", "sur", "avec", "sans", "trop", "plus", "tres",
-    "très", "cela", "ca", "ça", "ce", "mes", "tes", "ses", "son", "leur", "leurs","e", "se","trice"
+    "très", "cela", "ca", "ça", "ce", "mes", "tes", "ses", "son", "leur", "leurs","e", "se","trice","trices","a"
 }
 stop_words.update(custom_stopwords)
 

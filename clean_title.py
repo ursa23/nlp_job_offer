@@ -1,6 +1,7 @@
 import re
 from clean_text import df
 from stopword import stop_words
+
 # Nettoyage de base
 df.dropna(subset=['title_clean'], inplace=True)
 df = df[df['title_clean'].astype(str).str.len() > 2]
@@ -14,6 +15,15 @@ def clean_title(title):
     title = re.sub(r"[’'‘\"]", " ", title)
     title = re.sub(r'[^a-z\s]', ' ', title)  # Supprime ponctuation, chiffres, etc.
     title = re.sub(r'\s+', ' ', title).strip()
+
+    # we will include the stop_words 
+    title = title.split()
+    filtered_word = []
+    for word in title:
+        if word not in stop_words:
+            word = filtered_word.append(word)
+    title = ' '.join(filtered_word)
+
     return title
 df['clean_title'] = df['title_clean'].apply(clean_title)
 df = df[df['clean_title'] != ""]
